@@ -72,6 +72,9 @@ plot_world <- function(x, continuous_scale=TRUE, palette = "Reds") {
         d <- rbind(d,TW)
     }
     d$name <- sub("United\\sStates.*", "USA", d$name)
+    d$name <- sub("Republic\\sof\\sKorea", "South Korea", d$name)
+    d$name <- sub("United\\sKingdom.*", "UK", d$name)
+    d$name <- sub("Republika\\sSeverna\\sMakedonija", "Macedonia", d$name)
     world <- map_data('world')
     world <- world[world$region != "Antarctica", ]
     w <- merge(world, d, by.x='region', by.y='name', all.x=T)
